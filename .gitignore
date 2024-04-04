@@ -1,0 +1,27 @@
+# Comentarios pueden ser agregados con el símbolo #
+# Este es un archivo .gitignore básico
+
+# Ignorar archivos temporales
+*.tmp
+*.log
+
+# Ignorar archivos compilados
+*.class
+*.o
+
+# Ignorar directorios generados por el IDE
+.idea/
+.vscode/
+
+# Ignorar archivos de dependencias
+/node_modules
+/vendor
+
+# Ignorar archivos de configuración específicos del usuario
+.DS_Store
+
+# Ignorar el directorio del entorno virtual
+venv/
+
+# Ignorar el archivo de espacio de trabajo de VS Code
+*.code-workspace
