@@ -5,11 +5,12 @@ from rest_framework.response import Response
 from products.models import Product
 from products.serializers import ProductSerializer
 
-@api_view(["GET"])
+@api_view(['POST'])
 def api_home(request, *args, **kwargs):
-    instance  = Product.objects.all().order_by("?").first()
-    data = {}
-    if instance:
-        """ data = model_to_dict(instance, fields=['id', 'title', 'content', 'price', 'sale_price']) """
-        data = ProductSerializer(instance).data
-    return Response(data)
+
+    serializer = ProductSerializer(data=request.data)
+    if serializer.is_valid(raise_exception=True):   #Lanza el error específico
+        #instance = serializer.save()
+        print(serializer.data)
+        return Response(serializer.data)
+    return Response({"invalid" : "not good data"}, status=400)
